@@ -15,6 +15,7 @@ const bulidControls = (props) => (
                 label={ctrl.label}
                 added={() => props.ingAdded(ctrl.type)}
                 subtracted={() => props.ingSub(ctrl.type)}
+                disabled={props.disabled[ctrl.type]}
 
             />
         ))}
