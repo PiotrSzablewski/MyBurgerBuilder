@@ -22,8 +22,14 @@ class BurgerBuilder extends Component{
         toPurchase:false,
         ordering:false
     }
+    purchaseContinueHandler = ()=>{
+        alert('You did continue!!')
+    }
     orderingHandler = () => {
         this.setState({ordering: true})
+    }
+    cancelHandler = () =>{
+        this.setState({ordering: false})
     }
     updateToPurchase = (price) => {
         if(price !== 4){
@@ -67,8 +73,12 @@ class BurgerBuilder extends Component{
       }
     return(
       <Aux>
-          <Modal show={this.state.ordering}>
-              <OrderSummary ingredients={this.state.ingredients}/>
+          <Modal show={this.state.ordering} modalClosed={this.cancelHandler}>
+              <OrderSummary
+                  ingredients={this.state.ingredients}
+                  cancel={this.cancelHandler}
+                  purchaseContinue={this.purchaseContinueHandler}
+              />
           </Modal>
         <Burger ingredients={this.state.ingredients}/>
         <BulidControls
