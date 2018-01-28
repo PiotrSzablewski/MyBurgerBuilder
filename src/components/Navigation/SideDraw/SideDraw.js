@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Backdrop from '../../UI/Backdrop/Backdrop';
-import Aux from '../../../hoc/Auxi'
+import Aux from '../../../hoc/Auxi/Auxi'
 import classes from './SideDraw.css';
 const sideDraw = ( props ) => {
     let attClasses = [classes.SideDraw, classes.Close, ];
