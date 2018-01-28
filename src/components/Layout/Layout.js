@@ -10,14 +10,16 @@ class Layout extends Component{
     sideDrawClosedHandler = () =>{
         this.setState({showSideDrow: false});
     }
-    sideDrawOpenHandler = () => {
-        this.setState({showSideDrow: true})
+    sideDrawToggelHandler = () => {
+        this.setState((prevState)=>{
+            return {showSideDrow: !prevState.showSideDrow};
+        });
     }
 
     render(){
         return(
             <Aux>
-              <Toolbar opened={this.sideDrawOpenHandler}/>
+              <Toolbar opened={this.sideDrawToggelHandler}/>
               <SideDraw
                   open={this.state.showSideDrow}
                   closed={this.sideDrawClosedHandler}/>
