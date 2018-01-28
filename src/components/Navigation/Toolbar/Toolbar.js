@@ -4,11 +4,11 @@ import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems.js'
 const toolbar = (props) => (
     <header className={classes.Toolbar}>
-        <div>MENU</div>
+        <div onClick={props.opened}>MENU</div>
         <div className={classes.Logo}>
             <Logo />
         </div>
-        <nav>
+        <nav className={classes.DesktopOnly}>
             <NavigationItems/>
         </nav>
     </header>
