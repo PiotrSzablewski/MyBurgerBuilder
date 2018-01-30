@@ -3,7 +3,8 @@ import Aux from '../../hoc/Auxi/Auxi';
 import Burger from '../../components/Burger/Burger';
 import BulidControls from '../../components/Burger/BulidControls/BulidControls';
 import Modal from '../../components/UI/Modal/Modal';
-import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import axios from '../../axios-orders'
 const ING_PRICES = {
     salad: 0.5,
     cheese: 0.4,
@@ -23,7 +24,23 @@ class BurgerBuilder extends Component{
         ordering:false
     }
     purchaseContinueHandler = ()=>{
-        alert('You did continue!!')
+        const order = {
+            ingredients: this.state.ingredients,
+            price: this.state.totalPrice,
+            customer: {
+                name: 'Piotr',
+                adress: {
+                    street: 'Test str 2',
+                    zipCODE: '232422',
+                    country: 'Poland'
+                },
+                email: 'test@test.test',
+            },
+            deliveryMethod: 'fastest'
+        }
+        axios.post('/orders.json', order)
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
     }
     orderingHandler = () => {
         this.setState({ordering: true})
@@ -33,7 +50,6 @@ class BurgerBuilder extends Component{
     }
     updateToPurchase = (price) => {
         if(price !== 4){
-            console.log('cos:',44 )
             this.setState({toPurchase:true})
         }else {
             this.setState({toPurchase:false})
