@@ -19,7 +19,7 @@ class Checkout extends Component {
             }
 
         }
-        this.setState({ingredients: ingredients, totalPrice: price})
+        this.setState({ingredients: ingredients, price: price})
     }
     onCheckoutCacelledHandler = () => {
         this.props.history.goBack();
@@ -33,6 +33,7 @@ class Checkout extends Component {
             <div>
                 <CheckoutSummary
                     ingredients={this.state.ingredients}
+                    price={this.state.price}
                     onCheckoutCacelled={this.onCheckoutCacelledHandler}
                     onCheckoutContinued={this.onCheckoutContinuedHandler}
                 />
@@ -40,7 +41,7 @@ class Checkout extends Component {
                     path={this.props.match.path + '/contact-data'}
                     render={(props) => (<ContactData
                         ingredients={this.state.ingredients}
-                        price={this.state.totalPrice}
+                        price={this.state.price}
                         {...props}
                     />)}
 
