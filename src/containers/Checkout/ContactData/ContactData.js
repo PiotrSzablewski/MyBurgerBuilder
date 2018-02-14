@@ -92,7 +92,7 @@ class ContactData extends Component {
             }
           ]
         },
-        value: '',
+        value: 'cheapest',
         validation: {},
         valid: true
       }
