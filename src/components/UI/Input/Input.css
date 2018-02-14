@@ -23,3 +23,7 @@
   background-color: #ccc;
 
 }
+.Invalid{
+  background-color: #FDA49A;
+  border:1px solid red;
+}
